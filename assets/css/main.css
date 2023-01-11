@@ -2638,6 +2638,15 @@ input, select, textarea {
 
 /* Icons */
 
+	
+	.fa-linkedin:hover {
+		color: #0066BC !important;
+		
+	}
+	.fa-github:hover {
+		color: #333 !important;
+	}
+
 	ul.icons {
 		cursor: default;
 		list-style: none;
@@ -3103,15 +3112,7 @@ input, select, textarea {
 				border: 0;
 			}
 
-		#header icons {
-			height: 3em;
-			letter-spacing: 0.2em;
-			line-height: 2em;
-			position: absolute;
-			right: 10%;
-			top: 0.7em;
-			padding: 0 1em;
-		}
+		
 
 		#header nav {
 			font-family: Raleway, Helvetica, sans-serif;
@@ -3125,6 +3126,19 @@ input, select, textarea {
 			text-transform: uppercase;
 			top: 0.7em;
 		}
+
+			#header nav icons {
+				position: absolute;
+				right: 4.3em;
+				font-size: 180%;
+				transform: scale(1);
+			}
+				#header nav icons iconss {
+					position: absolute;
+					right: 2em;
+					font-size: inherit;
+					transform: scale(1);
+				}
 
 			#header nav a {
 				border: 0;
@@ -3195,6 +3209,11 @@ input, select, textarea {
 					right: 0;
 					height: inherit;
 					line-height: inherit;
+				}
+
+				#header nav icons {
+					right: 4em;
+					font-size: 150%;
 				}
 
 					#header nav a {
