@@ -2641,7 +2641,6 @@ input, select, textarea {
 	
 	.fa-linkedin:hover {
 		color: #0066BC !important;
-		
 	}
 	.fa-github:hover {
 		color: #333 !important;
@@ -3102,7 +3101,7 @@ input, select, textarea {
 			-ms-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			border-bottom: 0;
-			font-size: 0.8em;
+			font-size: 0.9em;
 			margin-bottom: 0;
 			opacity: 1;
 			visibility: visible;
