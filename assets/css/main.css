@@ -2638,23 +2638,28 @@ input, select, textarea {
 
 /* Icons */
 
-	
+	.fa-envelope:hover {
+		color: rgba(220, 220, 220, 0.67) !important;
+	}
+
 	.fa-linkedin:hover {
-		color: #0066BC !important;
+		color: rgba(0, 104, 189, 0.9) !important;
 	}
 	.fa-github:hover {
-		color: #333 !important;
+		color: rgba(51, 51, 51, 0.9) !important;
 	}
 
 	ul.icons {
+		padding-top: 0.5em;
 		cursor: default;
 		list-style: none;
-		padding-left: 0;
+		text-align: center;
 	}
 
 		ul.icons li {
-			display: inline-block;
-			padding: 0 1em 0 0;
+			display: inline;
+			font-size: 180%;
+			padding: 0em 2em 0em 0em;
 		}
 
 			ul.icons li:last-child {
@@ -4039,7 +4044,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer .inner {
-		padding: 5em 0 3em 0 ;
+		padding: 2em 0 3em 0 ;
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -4072,14 +4077,14 @@ input, select, textarea {
 		#footer .inner .copyright {
 			border-top: solid 2px rgba(255, 255, 255, 0.125);
 			list-style: none;
-			margin: 4em 0 2em 0;
+			margin: 0em 0 1em 0;
 			padding: 2em 0 0 0;
 			width: 100%;
 		}
 
 			#footer .inner .copyright li {
 				border-left: solid 2px rgba(255, 255, 255, 0.125);
-				color: rgba(255, 255, 255, 0.35);
+				color: rgba(255, 255, 255, 0.1);
 				display: inline-block;
 				font-size: 0.9em;
 				line-height: 1;
@@ -4137,7 +4142,7 @@ input, select, textarea {
 				}
 
 				#footer .inner .copyright {
-					margin: 4em 0 2em 0;
+					margin: 0em 0 2em 0;
 				}
 
 	}
