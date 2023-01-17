@@ -2639,15 +2639,21 @@ input, select, textarea {
 /* Icons */
 
 	.fa-envelope:hover {
-		color: rgba(220, 220, 220, 0.67) !important;
+		color: rgba(153, 155, 161, 0.9) !important;
+	}
+
+	.fa-file:hover {
+		color: rgba(153, 155, 161, 0.9) !important;
 	}
 
 	.fa-linkedin:hover {
-		color: rgba(0, 104, 189, 0.9) !important;
+		color: rgba(0, 119, 181, 0.9) !important;
 	}
 	.fa-github:hover {
 		color: rgba(51, 51, 51, 0.9) !important;
 	}
+
+	.fa-
 
 	ul.icons {
 		padding-top: 0.5em;
@@ -2679,8 +2685,9 @@ input, select, textarea {
 
 		ul.contact li {
 			text-decoration: none;
-			margin: 2.5em 0 0 0;
-			padding: 0 0 0 3.25em;
+			font-size: 150%;
+			margin: 0.5em 0 0 0;
+			padding: 0 0 0 1.25em;
 			position: relative;
 		}
 
@@ -2718,7 +2725,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			ul.contact li {
-				margin: 1.5em 0 0 0;
+				margin: 0em 0 0 0;
 			}
 
 		}
