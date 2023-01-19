@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	JT Klenke's Portfolio Website
+	Template by HTML5 UP under CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>JT Klenke</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1><a href="#">Projects</a></h1>
+		<nav>
+			<a href="#menu">Menu</a>
+			<icons>
+				<a href="https://github.com/jtklenke" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a>
+				<icons>
+					<a href="https://www.linkedin.com/in/jtklenke/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+				</icons>
+			</icons>
+		</nav>
+	</header>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="generic.html">Generic</a></li>
+								<li><a href="elements.html">Elements</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>Projects</h2>
+                            <p>These are my coding projects, take a look!</p>
+						</div>
+					</section>
+
+				<!-- Wrapper -->
+                <div class="wrapper">
+                    <div class="inner">
+
+                        
+                        <h3 id="Antenna" class="major">Evolutionary algorithm assisted antenna design</h3>
+                        <p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+
+                        <p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
+
+                        <h3 id="Timelapse" class="major">Procedural Timelapse Photos</h3>
+                        <p>I would build the image by taking pixels from different frames of a video depending on some function. For example, the distance of a pixel from the center would decide what frame that pixel would be taken from. Doing this for every pixel should create a picture that would smoothly blend over the length of the video.
+                        <div class="col-12"><span class="image fit"><img src="images/timelapse1.png" alt="" /></span></div>
+                        After finishing that implementation, I noticed that the resulting pictures had noticeably rough transitions between pixels,</p>
+                        <div class="col-12"><span class="image fit"><img src="images/timelapse2.jpg" alt="" /></span></div>
+                        <p>To fix this, I decided to use a weighted average of a pixel’s value over some time, this should soften the transition essentially by “blurring” the photo over the time axis. I was hoping this would mimic the effect of long exposure photography. This new method took significantly more computer power, while the original version sampled just 1 value per pixel the new version would sample 64 pixels and then perform a weighted average, which took additional time. To speed up the new version I looked to parallelize the computation using the multiprocessing library. I further optimized the code by precomputing the Gaussian distribution (which is what I used as the weighted average values), pre-retrieving the image pixel values and storing them in a np array, and doing all three color channels at once using a matrix multiplication rather than doing the dot-product on a per channel basis, after that I was able to get the time to build an image down to around 10 minutes on my laptop.<br>
+                        I used the Python library youtube-dl to download YouTube videos. Originally, I used VLC Media player to get all the frames of the video as images but later I used FFmpeg to make the whole process more streamlined. I used PIL to access the images and build a numpy array that was easier and faster to operate on.</p>
+                        <div class="col-12"><span class="image fit"><img src="images/timelapsefinal.jpg" alt="" /></span></div>
+                        <p>There are still some noticeable artifacts that I suspect come from Youtube's video compression, especially around the ferris wheel. Additionally, with this new technique some of the color detail and contrast is lost in the ferris wheel which is something I might revisit. I'd like to take some of my own timelapse video and use this tool and see what results I can get.</p>
+                
+                    </div>
+                </div>
+
+					
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Additional Info</h2>
+							<ul class="contact">
+								<li>Email&ensp;<a href="mailto:jtk96@cornell.edu" target="mailto:jtk96@cornell.edu" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								<li>Resume&ensp;<a href="docs/JTKlenkeResume.pdf" target="_blank" rel="noopener noreferrer" class="icon solid fa-file"><span class="label">Resume</span></a></li>
+								<li>GitHub&ensp;<a href="https://github.com/jtklenke" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li>LinkedIn&ensp;<a href="https://www.linkedin.com/in/jtklenke/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>© 2023 Julius Klenke. All Rights Reserved. | Template Courtesy of HTML5 UP</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
