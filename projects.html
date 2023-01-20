@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <!--
-	JT Klenke's Portfolio Website
+	JT Klenke's Portfolio Website, project page
 	Template by HTML5 UP under CCA 3.0 license (html5up.net/license)
 -->
 <html>
@@ -64,9 +64,115 @@
                             <br>
                         </p>
 
-                        <h3 id="Timelapse" class="major">Procedural Timelapse Photos</h3>
+                        <h3 id="AStar" class="major">A* Pathfinding</h3>
+                        <p>As part of my work on the motion planning team of Cornell’s UAV club I implemented and benchmarked a few different implementations of A* and related algorithms in Java and C. 
+                            <br><br>The objective was to find the shortest path between two points on an NxM grid where some grid points are marked as obstacles. I first implemented Dijkstra’s shortest path algorithm which would be extremely slow for the given use case but was simple to implement and helped me understand the core algorithm behind A*. Unsurprisingly, Dijkstra’s algorithm was slow, especially on large grids. 
+                            <br><br>With a better understanding of the algorithm, I moved on to implementing A*. Deciding that now was as good a time as any, I also created some test cases using JUnit after all if it’s not tested, its broken, and wouldn’t you know, it was broken. After some significant debugging I realized my mistake, as an optimization I had only created an instance of the point class when I “discovered” a point, what I had done wrong was to instantiate a new point even if it had already been discovered. Honestly, with such a major oversight I was shocked how few test cases it failed. To fix this I used Java’s HashMap to store all the discovered points and only created one if it didn’t exist. 
+                            <br><br>After testing with JUnit and benchmarking A* I was surprised at how slow it was. Looking for ways to speed it up I found an algorithm that takes advantage of the regularity of the grid called jump point search (JPS) which is said to be significantly faster. The original idea for JPS comes from <a href="http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf" target="_blank" rel="noopener noreferrer">this</a> paper by Daniel Harabor and Alban Grastien and I found <a href="https://zerowidth.com/2013/a-visual-explanation-of-jump-point-search.html" target="_blank" rel="noopener noreferrer">this</a> website by Nathan Witmer to give a great visual intuition behind the algorithm. Unfortunately, for almost every obstacle placement I found JPS to be much slower than traditional A* and for very large grids it would run into the recursion limit. 
+                            <br><br>Still looking for a faster implementation I tried to optimize by original A* implementation. I did so first by writing my own priority queue implementation that supported an ‘increase priority’ method and second by condensing the representation of a grid point. Originally, I had a grid point class that stored the g-cost, f-cost, parent point and x and y coordinates of the point. While this was simple and readable, it came with all the overhead of a Java class, which for many points added up. I was able to reduce all the information down so that it was able to fit into a single long (a 64-bit number) then I built a class to abstract that structure away from the core A* algorithm. This helped quite a bit but was still slower than I would have liked. 
+                            <br><br>I decided to code the algorithm in C. It would be a good opportunity to refresh some basic C and should yield a faster implementation. I decided that I would start by implementing a linked list which I used to store the final path. I also started by implementing the priority queue as a linked list, just iterating over the whole list, and then returning and splicing out the “minimum” element. I knew this would be very slow (O(n) as opposed to O(lg n) from a binary heap) but it would let me debug the A* algorithm, give me some extra practice in C and give me an idea as to the speed of C compared to Java. Additionally, instead of using a hash map to store the discovered points I just used an array with all of the potential points, while this would be very memory inefficient it would be very fast and easily implemented.
+                            <br><br>After getting that implementation working, I noticed that it was actually significantly slower than Java, originally, I just attributed that to the slow priority queue but even after I modified the Java priority queue to loop over every element it was still slower. I looked for ways to speed up the C code and realized that there were a few obvious things that were slowing it down. First, I cut down some unnecessary malloc calls I had, second, I used additional space to store some values that I had previously been recalculating, most importantly, I used O flags, O2 sped up the code by almost 4x.
+                            <br><br>Finally, with some guarantee that it would be faster than Java, I implemented the priority queue as a binary heap. In the end, while it took more significantly more time to code than Java it ended up being substantially faster. I was able to get the code to run anywhere from 4-100x faster than the best Java implementation. Here are all of the benchmarks for each implementation (excluding Dijkstra’s because it is way too slow) the time is the average of 5 runs excluding the extremes, the unit varies by row.
+                        </p>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Grid Size + start & end</th>
+										<th>Grid Type</th>
+										<th>A* Java</th>
+										<th>JPS Java</th>
+										<th>A* Bits Java</th>
+										<th>A* in C</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>100 x 100  (0,0) -> (99,99)</td>
+										<td>empty</td>
+										<td>11ms</td>
+										<td>12ms</td>
+										<td>8ms</td>
+										<td>&lt;1ms</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>w/ open box from 2 to 66</td>
+										<td>51ms</td>
+										<td>97ms</td>
+										<td>34ms</td>
+										<td>&lt;1ms</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>w/ wall from (97,99) to (97,1)</td>
+										<td>121ms</td>
+										<td>106ms</td>
+										<td>87ms</td>
+										<td>&lt;1ms</td>
+									</tr>
+									<tr>
+										<td></td>
+									</tr>
+									<tr>
+										<td>1,000 x 1,000  (0,0) -> (999,999)</td>
+										<td>empty</td>
+										<td>77ms</td>
+										<td>42ms</td>
+										<td>23ms</td>
+										<td>20ms</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>w/ open box from 2 to 666</td>
+										<td>5.1s</td>
+										<td>9.4s</td>
+										<td>1.5s</td>
+										<td>.24ms</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>w/ open box from 2 to 666</td>
+										<td>15s</td>
+										<td>2.1s</td>
+										<td>2.8s</td>
+										<td>&lt;1ms</td>
+									</tr>
+									<tr>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2,000 x 2,000  (0,0) -> (1999,1999)</td>
+										<td>empty</td>
+										<td>138ms</td>
+										<td>62ms</td>
+										<td>40ms</td>
+										<td>23ms</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>w/ open box from 2 to 1666</td>
+										<td>72s</td>
+										<td>140s</td>
+										<td>8.8s</td>
+										<td>2.1s</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>w/ wall from (1997,1999) to (1997,1)</td>
+										<td>155s</td>
+										<td>17s</td>
+										<td>10s</td>
+										<td>2.86s</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h3 id="Timelapse" class="major">Procedural Timelapse Photos</h3>
                         
-                        <p>Inspired by a <a href="https://www.ted.com/talks/stephen_wilkes_the_passing_of_time_caught_in_a_single_photo?language=en" target="_blank" rel="noopener noreferrer">Ted Talk by Stephen Wilkes</a>, I created a version of his photos procedurally. The first method that I wanted to try was to take columns of pixels from different frames of the timelapse. This would be easy to implement and give me a rough idea of how a more advanced method would look. I would specify a width that the final image would be as well as the number of columns of pixels I would take from each frame. From that, the final image could be constructed. The result is bands of pixels from separate frames arranged next to each other. Stephen Wilkes creates them manually, painstakingly picking out the most interesting subjects and times of day, manually blending it together to create his images. I wanted to simplify the process, using frames from a timelapse video and procedurally blending over time to create a similar effect.
+                        <p>Inspired by a <a href="https://www.ted.com/talks/stephen_wilkes_the_passing_of_time_caught_in_a_single_photo?language=en" target="_blank" rel="noopener noreferrer">Ted Talk by Stephen Wilkes</a>, I created a version of his photos using Python. Stephen Wilkes creates them manually, painstakingly picking out the most interesting subjects and times of day, manually blending it together to create his images. I wanted to simplify the process, using frames from a timelapse video and automatically blending over time to create a similar effect.
+							<br><br>The first method that I wanted to try was to take columns of pixels from different frames of the timelapse. This would be easy to implement and give me a rough idea of how a more advanced method would look. I would specify a width that the final image would be as well as the number of columns of pixels I would take from each frame. From that, the final image could be constructed. The result is bands of pixels from separate frames arranged next to each other.
                             <br><br>It's surprisingly tricky to find 24h time-lapses of interesting things with still cameras on YouTube (most are of the night skies, which stays relatively similar throughout the video, have moving cameras, have watermarks, or are of boring subjects.) I found two that work well enough for experimentation but suffer from one of the above issues: <a href="https://www.youtube.com/watch?v=AHrCI9eSJGQ" target="_blank" rel="noopener noreferrer">30 Days Timelapse at Sea | 4K | Through Thunderstorms, Torrential Rain & Busy Traffic</a> by JeffHK and <a href="https://www.youtube.com/watch?v=x1Os8NcSrbI" target="_blank" rel="noopener noreferrer">24 Hour Time Lapse</a> by Bob Clark. The first has a watermark and text plus I found out everything happens too fast for this method to work effectively, the second is just a boring subject and the total number of frames is a bit too short to do everything I wanted (925 frames) but was great for testing because there's a good span in time but not much changes frame to frame. The last video I found was <a href="https://www.youtube.com/watch?v=Ew7N65F6oYc" target="_blank" rel="noopener noreferrer">Timelapse Los Angeles / Santa Monica Beach California</a> by Mark From Denmark. This was a good video with a still camera and interesting subject over a long enough time that there was good variation but unfortunately, the video is super short. There are only 616 frames and only 470 of those are useful (the rest are black or darkened from a fade in and fade out). 
                             <br><br>To get the frames of the I downloaded the YouTube videos using one of many online tools, they're kind of sketchy if your careful to only download the video they seem to be fine, then I used VLC Media Player to get frames. Later I would streamline this process using the Python library youtube-dl to download YouTube videos and FFmpeg to get all the frames as .jpg images. 
                             <br><br>I then used Image from PIL to get pixel data from each frame. My final code simply creates a black image of the appropriate width and height and then filles it in with pixels in some nested loops, the final image is then showed. The result of the first attempt is a little underwhelming but shows some promise and some flaws to be remedied. Here it is on the 30 Days at Sea and the 24 Hour videos.
@@ -93,17 +199,6 @@
                             <div class="col-12"><span class="image fit"><img src="images/timelapsefinal.jpg" alt="" /></span></div>
                             <p>There are still some noticeable artifacts that I suspect come from YouTube's video compression being compounded by averaging over many frames, especially around the ferris wheel. Additionally, with this new technique some of the color detail and contrast is lost in the ferris wheel which is something I might revisit. I'd like to take some of my own timelapse video and use this tool and see what results I can get.
                             <br>
-                        </p>
-
-                        <h3 id="AStar" class="major">A* Pathfinding</h3>
-                        <p>As part of my work on the motion planning team of Cornell’s UAV club I implemented and benchmarked a few different implementations of A* and related algorithms in Java and C. 
-                            <br><br>The objective was to find the shortest path between two points on an NxM grid where some grid points are marked as obstacles. I first implemented Dijkstra’s shortest path algorithm which would be extremely slow for the given use case but was simple to implement and helped me understand the core algorithm behind A*. Unsurprisingly, Dijkstra’s algorithm was slow, especially on large grids. 
-                            <br><br>With a better understanding of the algorithm, I moved on to implementing A*. Deciding that now was as good a time as any, I also created some test cases using JUnit after all if it’s not tested, its broken, and wouldn’t you know, it was broken. After some significant debugging I realized my mistake, as an optimization I had only created an instance of the point class when I “discovered” a point, what I had done wrong was to instantiate a new point even if it had already been discovered. Honestly, with such a major oversight I was shocked how few test cases it failed. To fix this I used Java’s HashMap to store all the discovered points and only created one if it didn’t exist. 
-                            <br><br>After testing with JUnit and benchmarking A* I was surprised at how slow it was. Looking for ways to speed it up I found an algorithm that takes advantage of the regularity of the grid called jump point search (JPS) which is said to be significantly faster. The original idea for JPS comes from <a href="http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf" target="_blank" rel="noopener noreferrer">this</a> paper by Daniel Harabor and Alban Grastien but I found <a href="https://zerowidth.com/2013/a-visual-explanation-of-jump-point-search.html" target="_blank" rel="noopener noreferrer">this</a> website by Nathan Witmer to give a great visual intuition behind the algorithm. Unfortunately, for almost every obstacle placement I found JPS to be much slower than traditional A* and for very large grids it would run into the recursion limit. 
-                            <br><br>Still looking for a faster implementation I tried to optimize by original A* implementation. I did so first by writing my own priority queue implementation that supported an ‘increase priority’ method and second by condensing the representation of a grid point. Originally, I had a grid point class that stored the g-cost, f-cost, parent point and x and y coordinates of the point. While this was simple and readable, it came with all the overhead of a Java class, which for many points added up. I was able to reduce all the information down so that it was able to fit into a single long (a 64-bit number) then I built a class to abstract that structure away from the core A* algorithm. This helped quite a bit but was still slower than I would have liked. 
-                            <br><br>I decided to code the algorithm in C. It would be a good opportunity to refresh some basic C and should yield a faster implementation. I decided that I would start by implementing a linked list which I used to store the final path. I also started by implementing the priority queue as a linked list, just iterating over the whole list, and then returning and splicing out the “minimum” element. I knew this would be very slow (O(n) as opposed to O(lg n) from a binary heap) but it would let me debug the A* algorithm, give me some extra practice in C and give me an idea as to the speed of C compared to Java. Additionally, instead of using a hash map to store the discovered points I just used an array with all of the potential points, while this would be very memory inefficient it would be very fast and easily implemented.
-                            <br><br>After getting that implementation working, I noticed that it was actually significantly slower than Java, originally, I just attributed that to the slow priority queue but even after I modified the Java priority queue to loop over every element it was still slower. I looked for ways to speed up the C code and realized that there were a few obvious things that were slowing it down. First, I cut down some unnecessary malloc calls I had, second, I used additional space to store some values that I had previously been recalculating, most importantly, I used O flags, O2 sped up the code by almost 4x.
-                            <br><br>Finally, with some guarantee that it would be faster than Java, I implemented the priority queue as a binary heap. In the end, while it took more significantly more time to code than Java it ended up being substantially faster. I was able to get the code to run anywhere from 4-100x faster than the best Java implementation.
                         </p>
 
 
