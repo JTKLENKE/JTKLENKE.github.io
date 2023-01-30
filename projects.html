@@ -331,6 +331,30 @@ print ("Impedance \t(%6.1f,%+6.1fI) Ohms" % (z.real, z.imag))</code></pre>
                         </p>
 
 
+						<h3 id="Fourier" class="major">Fourier Transform Demonstration</h3>
+
+                        <p>I created a visual demonstration of the Fourier transform in the complex plane. The code takes hand drawn paths and constructs a visual representation of the frequency deconstruction. The original idea comes from <a href="https://www.youtube.com/watch?v=r6sGWTCMz2k" target="_blank" rel="noopener noreferrer">this</a> video by 3Blue1Brown. I created a version of his photos using Python. I used Pygame to draw and get user input. The code works by sampling the mouse position at a constant rate and then, using a discrete Fourier transform (DFT), determining the frequency, amplitude and phase components of the signal. This works in two dimensions by considering the points to be in the complex plane, that is for a point (x,y) the value is x + yi. The final animation is then drawn with circles and rotating lines. An interesting byproduct of sampling the mouse position at a constant speed is that the animation will play at the same speed that the picture was drawn.</p>
+						<p><br><br></p>
+
+
+
+						<h3 id="Climate" class="major">Climate Visualizations</h3>
+
+                        <p>To learn a bit about Python's pandas library, I created some visualizations of historical weather data from OpenWeather. I used their <a href="https://openweathermap.org/history-bulk" target="_blank" rel="noopener noreferrer">History Bulk</a> data for <a href="https://www.google.com/maps/place/Diamond+Peak+Ski+Resort/@39.2535331,-119.9226857,15z" target="_blank" rel="noopener noreferrer">Diamond Peak</a>, a small ski mountain, to create the visualizations. The data has hourly data going back to Jan 1, 1979 including temperature, snow fall and rain fall, which were the most interesting to me. Since my goal was to learn pandas, I tried lots of different ways to visualize the data. There ended up being a few interesting ones. Here is a GIF showing the yearly the mean, maximum and minimum temperature over time:
+						</p>
+						<div class="col-12"><span class="image fit"><img src="images/YearlyTempGIF.gif" alt="" /></span></div>
+						</p><p>Which I realized was challenging to understand, so I created a 3D visualization of the average temperature for every day they had recorded (<a href="images/Pandas3d.html">click here to interact</a>) which was a bit better:
+						</p>
+						<div class="col-12"><span class="image fit"><img src="images/PandasWeather3d.png" alt="" /></span></div>
+						</p><p>Then I cut out the subjective analysis and created a graph showing the mean, maximum and minimum temperature during the winter months, with a linear regression:
+						</p>
+						<div class="col-12"><span class="image fit"><img src="images/WinterTemperatureRegression.png" alt="" /></span></div>
+						</p><p>I also created these snow and rain fall graphs, again with linear regression.
+						</p>
+						<div class="col-12"><span class="image fit"><img src="images/FallRegression.png" alt="" /></span></div>
+						<p><br><br></p>
+						
+
                     </div>
                 </div>
 
