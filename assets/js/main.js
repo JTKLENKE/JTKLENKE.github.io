@@ -143,3 +143,122 @@
 			});
 
 })(jQuery);
+
+
+const galleryArray = document.getElementsByClassName("gallery");
+let currentSlidesArray = Array(galleryArray.length).fill(0);
+
+var currentSlides = {};
+
+ // Loop to insert key & value in this object one by one
+for(var i = 0; i < galleryArray.length; i++){ 
+    currentSlides[galleryArray[i]] =  currentSlidesArray[i];
+
+	showSlide(galleryArray[i])
+} 
+
+// Next/previous controls
+function changeSlide(n, caller) {
+ 	 currentSlides[caller.parentElement] += n;
+  	showSlide(caller.parentElement);
+}
+
+// Thumbnail image controls
+function setSlide(n, caller) {	
+	currentSlides[caller.parentElement.parentElement.parentElement] = n;
+  	showSlide(caller.parentElement.parentElement.parentElement);
+}
+
+function showSlide(instance) {
+  let i;
+  let slides = [...instance.children].filter(element => element.classList.contains("slide"));
+  let previews = findDemoDivs(instance)
+  let slideIndex = currentSlides[instance];
+  slideIndex = (((slideIndex%slides.length)+slides.length)%slides.length);
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < previews.length; i++) {
+    previews[i].className = previews[i].className.replace(" active", "");
+  }
+  slides[slideIndex].style.display = "block";
+  previews[slideIndex].className += " active";
+}
+
+function findDemoDivs(node) {
+	let demoDivs = [];
+	if (node.childNodes.length == 0) return demoDivs;
+	
+	for (let i = 0; i < node.childNodes.length; i++) {
+		demoDivs = demoDivs.concat(findDemoDivs(node.childNodes[i]));
+	}
+	
+	demoDivs = demoDivs.concat([...node.children].filter(element => element.classList.contains("preview")));
+	
+
+	return demoDivs;
+  }
+/** working code 
+
+let slideIndex = 0;
+showSlide(slideIndex);
+
+// Next/previous controls
+function changeSlide(n) {
+  slideIndex += n;
+  showSlide();
+}
+
+// Thumbnail image controls
+function setSlide(n) {
+  slideIndex = n;
+  showSlide();
+}
+
+function showSlide() {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("demo");
+  slideIndex = (slideIndex%slides.length) + 1;
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+*/
+
+
+
+/*
+let slideShows = document.getElementsByClassName("slideshow-container");
+let currentSlideArray = new Array(slideShows.length).fill(0);
+
+slideShows.array.forEach(element => {
+	showSlide(0, element)
+});
+
+
+function changeSlide(direction, parent) {
+  currentSlide += direction
+  showSlide(currentSlide);
+  
+}
+
+function showSlide(n, parent) {
+  let htmlCollection = parent.children
+  let images = [].filter.call(
+    htmlCollection, element => [].includes.call(elements.classList, "mySlides fade")
+)//document.getElementsByClassName("mySlides fade");
+  n = n%images.length
+  for (let i = 0; i < images.length; i++){
+	images[i].style.display = "none";
+  }
+  images[n].style.display = "block";
+}
+*/

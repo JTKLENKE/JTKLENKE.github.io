@@ -72,6 +72,9 @@ input, select, textarea {
 	appearance: none;
 }
 
+
+
+
 /* Basic */
 
 	@-ms-viewport {
@@ -294,6 +297,8 @@ input, select, textarea {
 	h6 {
 		font-size: 0.7em;
 	}
+
+	* {box-sizing:border-box}
 
 	@media screen and (max-width: 736px) {
 
@@ -3673,7 +3678,126 @@ input, select, textarea {
 		background-color: #2e3141;
 		margin: 6.5em 0;
 		position: relative;
+		
 	}
+	* {
+		box-sizing: border-box;
+	  }
+	  
+	  /* Position the image container (needed to position the left and right arrows) */
+	  .gallery {
+		display: grid;
+		place-items: center;
+		position: relative;
+		margin-bottom: 5em;
+	  }
+	  
+	  /* Hide the images by default */
+	  .slide {
+		display: none;
+	  }
+	  
+	  /* Add a pointer when hovering over the thumbnail images */
+	  .cursor {
+		cursor: pointer;
+	  }
+	  
+	  /* Next & previous buttons */
+	  .prev,
+	  .next {
+		cursor: pointer;
+		position: absolute;
+		top: 40%;
+		width: auto;
+		padding: 16px;
+		margin-top: -50px;
+		color: white;
+		font-weight: bold;
+		font-size: 20px;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+		border: rgba(0, 0, 0, 0);
+		border-radius: 3px 0 0 3px;
+	  }
+	  .centerimage {
+		position: relative;
+    	min-height: 30em;
+    	max-height: 30em;
+		margin: 2em;
+	  }
+	  /* Position the "next button" to the right */
+	  .next {
+		right: .5em;
+	  }
+	  .prev{
+		left: .5em;
+	  }
+	  
+	  /* On hover, add a black background color with a little bit see-through */
+	  .prev:hover,
+	  .next:hover {
+		background-color: rgba(0, 0, 0, 0.3);
+		text-decoration: none;
+	  }
+	  
+	  /* Number text (1/3 etc) */
+	  .numbertext {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+	  }
+	  
+	  .row:after {
+		content: "";
+		display: table;
+		clear: both;
+	  }
+	  
+	
+	  
+	  /* Add a transparency effect for thumnbail images */
+	  .preview {
+		max-height: 10em;
+		min-height: 10em;
+		width: auto;
+  		height: auto;
+		opacity: 0.6;
+	  }
+	  
+	  .active,
+	  .preview:hover {
+		opacity: 1;
+	  }
+	  @media screen and (max-width: 980px) {
+		.preview {
+			max-height: 8em;
+			min-height: 8em;
+		  }
+		  .centerimage {
+			min-height: 24em;
+			max-height: 24em;
+		  }
+
+	  }
+
+	  @media screen and (max-width: 736px) {
+		.preview {
+			max-height: 6em;
+			min-height: 6em;
+		  }
+		  .centerimage {
+			min-height: 18em;
+			max-height: 18em;
+		  }
+	  }
+  
+  @keyframes fade {
+	from {opacity: .4}
+	to {opacity: 1}
+  }
 
 		.wrapper:before, .wrapper:after {
 			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%232e3141%3B' /%3E%3C/svg%3E");
