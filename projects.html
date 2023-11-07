@@ -4,251 +4,317 @@
 	Template by HTML5 UP under CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>JT Klenke</title>
-		<link rel="icon" type="image/x-icon" href="/images/Favicon.png">
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<!-- Header -->
-	<header id="header" class="alt">
-		<h1><a href="#">Projects</a></h1>
-		<nav>
-			<a href="#menu">Menu</a>
+
+<head>
+	<title>JT Klenke</title>
+	<link rel="icon" type="image/x-icon" href="/images/Favicon.png">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+<!-- Header -->
+<header id="header" class="alt">
+	<h1><a href="#">Projects</a></h1>
+	<nav>
+		<a href="#menu">Menu</a>
+		<icons>
+			<a href="https://github.com/jtklenke" target="_blank" rel="noopener noreferrer"
+				class="icon brands fa-github"><span class="label">GitHub</span></a>
 			<icons>
-				<a href="https://github.com/jtklenke" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a>
-				<icons>
-					<a href="https://www.linkedin.com/in/jtklenke/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
-				</icons>
+				<a href="https://www.linkedin.com/in/jtklenke/" target="_blank" rel="noopener noreferrer"
+					class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
 			</icons>
+		</icons>
+	</nav>
+</header>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="logs.html">Logs</a></li>
+					<li><a href="pottery.html">Pottery</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
 		</nav>
-	</header>
-	<body class="is-preload">
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<h2>Projects</h2>
+				<p>These are my coding projects, take a look!</p>
+			</div>
+		</section>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+		<!-- Wrapper -->
+		<div class="wrapper">
+			<div class="inner">
 
-				
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="projects.html">Projects</a></li>
-								<li><a href="logs.html">Logs</a></li>
-								<li><a href="pottery.html">Pottery</a></li>
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Projects</h2>
-                            <p>These are my coding projects, take a look!</p>
-						</div>
-					</section>
 
-				<!-- Wrapper -->
-                <div class="wrapper">
-                    <div class="inner">
-
-                        
-                        <h3 id="Antenna" class="major">Evolutionary algorithm assisted antenna design</h3>
-						<p>I wrote an evolutionary algorithm in Python to optimize the antenna shape for communications antennas, the final design is to be used on F-5 Navy training jets.</p>
-						<div class="col-12"><span class="image fit"><img src="images/EvolvedAntennaJet.webp" alt="" /></span></div>
-						<p>The plate antenna operates from 108-400MHz, the evolutionary algorithm designed antenna is about twice as good as the old design and exceeds the specification by 25%. <a href="docs/Evolutionary Algorithm Optimized Broadband Plate Antenna for F5 Vertical Stabilizer - Double Spaced.pdf" target="_blank" rel="noopener noreferrer">Here</a> is the paper I wrote on the process. I used necpp to simulate the antennas in Python and RigExpert to test them in the real world. I gained experience using Linux in a virtual machine enviroment and knowledge about antennas and their design.</p>
-						<p>The final design is a unique and unusual shape for an antenna. Interestingly, even on completely seperate executions of the optimization algorithm, this general shape was created, suggesting it is near optimal.</p>
-						<div class="col-12"><span class="image fit"><img src="images/EvolvedAntennaFinalShape.webp" alt="" /></span></div>
-						<p>The following is a graph showing the effectiveness of the antenna at different frequencies, lower is better, 1 is best. These results were later verified by a third party.</p>
-						<div class="col-12"><span class="image fit"><img src="images/RealVswrFinal.webp" alt="" /></span></div>
-                        <a href="logs.html#Antenna" class="button secondary fit">View Project Logs</a>
-						<br><br><br></p>
+				<h3 id="Antenna" class="major">Evolutionary algorithm assisted antenna design</h3>
+				<p>I wrote an evolutionary algorithm in Python to optimize the antenna shape for communications
+					antennas, the final design is to be used on F-5 Navy training jets.</p>
+				<div class="col-12"><span class="image fit"><img src="images/EvolvedAntennaJet.webp" alt="" /></span>
+				</div>
+				<p>The plate antenna operates from 108-400MHz, the evolutionary algorithm designed antenna is about
+					twice as good as the old design and exceeds the specification by 25%. <a
+						href="docs/Evolutionary-Algorithm-Optimized-Broadband-Plate-Antenna-for-F5-Vertical-Stabilizer.pdf"
+						target="_blank" rel="noopener noreferrer">Here</a> is the paper I wrote on the process. I used
+					necpp to simulate the antennas in Python and RigExpert to test them in the real world. I gained
+					experience using Linux in a virtual machine environment and knowledge about antennas and their
+					design.</p>
+				<p>The final design is a unique and unusual shape for an antenna. Interestingly, even on completely
+					separate executions of the optimization algorithm, this general shape was created, suggesting it is
+					near optimal.</p>
+				<div class="col-12"><span class="image fit"><img src="images/EvolvedAntennaFinalShape.webp"
+							alt="" /></span></div>
+				<p>The following is a graph showing the effectiveness of the antenna at different frequencies, lower is
+					better, 1 is best. These results were later verified by a third party.</p>
+				<div class="col-12"><span class="image fit"><img src="images/RealVswrFinal.webp" alt="" /></span></div>
+				<a href="logs.html#Antenna" class="button secondary fit">View Project Logs</a>
+				<br><br><br></p>
 
 
 
-                        <h3 id="AStar" class="major">A* Pathfinding</h3>
+				<h3 id="AStar" class="major">A* Pathfinding</h3>
 
-                        <p>As part of my work on the motion planning team of Cornell’s Aerial Robotics club, I implemented and benchmarked a few different implementations of A* and related algorithms in Java and C, inluding Dijkstra’s shortest path algorithm and <a href="https://github.com/JTKLENKE/A-StarC" target="_blank" rel="noopener noreferrer">jump point search</a>. I also implemented a binary heap in both languages. Here is the final code for <a href="https://github.com/CornellAerialRobotics/cu-arc-21-22/tree/main/CS/MotionPlanning/Dijktras_AStar" target="_blank" rel="noopener noreferrer">Java</a> and <a href="https://en.wikipedia.org/wiki/Jump_point_search" target="_blank" rel="noopener noreferrer">C</a>. I gained a significant understanding of pathfinding algorithms as well as some techniques for optimizing code. Here are the benchmarking results.
-						</p>
+				<p>As part of my work on the motion planning team of Cornell’s Aerial Robotics club, I implemented and
+					benchmarked a few different implementations of A* and related algorithms in Java and C, including
+					Dijkstra’s shortest path algorithm and <a href="https://github.com/JTKLENKE/A-StarC" target="_blank"
+						rel="noopener noreferrer">jump point search</a>. I also implemented a binary heap in both
+					languages. Here is the final code for <a
+						href="https://github.com/CornellAerialRobotics/cu-arc-21-22/tree/main/CS/MotionPlanning/Dijktras_AStar"
+						target="_blank" rel="noopener noreferrer">Java</a> and <a
+						href="https://en.wikipedia.org/wiki/Jump_point_search" target="_blank"
+						rel="noopener noreferrer">C</a>. I gained a significant understanding of pathfinding algorithms
+					as well as some techniques for optimizing code. Here are the benchmarking results.
+				</p>
 
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<tr>
-										<th>Grid Size&emsp;&emsp;&ensp;Start &rarr; End</th>
-										<th>Grid Type</th>
-										<th>A* Java</th>
-										<th>JPS Java</th>
-										<th>A* Bits Java</th>
-										<th>A* in C</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>100 x 100&emsp;&emsp;(0,0) &rarr; (99,99)</td>
-										<td>empty</td>
-										<td>11ms</td>
-										<td>12ms</td>
-										<td>8ms</td>
-										<td>&lt;1ms</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>w/ open box from 2 to 66</td>
-										<td>51ms</td>
-										<td>97ms</td>
-										<td>34ms</td>
-										<td>&lt;1ms</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>w/ wall from (97,99) to (97,1)</td>
-										<td>121ms</td>
-										<td>106ms</td>
-										<td>87ms</td>
-										<td>&lt;1ms</td>
-									</tr>
-									<tr>
-										<td></td>
-									</tr>
-									<tr>
-										<td>1,000 x 1,000&emsp;(0,0) &rarr; (999,999)</td>
-										<td>empty</td>
-										<td>77ms</td>
-										<td>42ms</td>
-										<td>23ms</td>
-										<td>20ms</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>w/ open box from 2 to 666</td>
-										<td>5.1s</td>
-										<td>9.4s</td>
-										<td>1.5s</td>
-										<td>.24ms</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>w/ wall from (997,999) to (997,1)</td>
-										<td>15s</td>
-										<td>2.1s</td>
-										<td>2.8s</td>
-										<td>.7s</td>
-									</tr>
-									<tr>
-										<td></td>
-									</tr>
-									<tr>
-										<td>2,000 x 2,000&emsp;(0,0) &rarr; (1999,1999)</td>
-										<td>empty</td>
-										<td>138ms</td>
-										<td>62ms</td>
-										<td>40ms</td>
-										<td>23ms</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>w/ open box from 2 to 1666</td>
-										<td>72s</td>
-										<td>140s</td>
-										<td>8.8s</td>
-										<td>2.1s</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>w/ wall from (1997,1999) to (1997,1)</td>
-										<td>155s</td>
-										<td>17s</td>
-										<td>10s</td>
-										<td>2.86s</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<a href="logs.html#AStar" class="button secondary fit">View Project Logs</a>
-						<p><br><br></p>
-
-
-
-						<h3 id="Timelapse" class="major">Procedural Timelapse Photos</h3>
-
-                        <p>Inspired by a <a href="https://www.ted.com/talks/stephen_wilkes_the_passing_of_time_caught_in_a_single_photo?language=en" target="_blank" rel="noopener noreferrer">Ted Talk by Stephen Wilkes</a>, I created a version of his photos using Python.</p>
-						<div class="col-12"><span class="image fit"><img src="images/TimelapseFinal.webp" alt="" /></span></div>
-						<p>I used PIL, FFmpeg, multiprocessing and NumPy, the final code for the project is <a href="https://github.com/JTKLENKE/Timelapse-Photos" target="_blank" rel="noopener noreferrer">here</a>. Stephen Wilkes creates them manually, painstakingly picking out the most interesting subjects and times of day and manually blending them to create his images. I wanted to simplify the process, using frames from a timelapse video and procedurally blending over time to create a similar effect.</p>
-						<a href="logs.html#Timelapse" class="button secondary fit">View Project Logs</a>
-						<p><br><br></p>
-
-
-						<h3 id="Fourier" class="major">Fourier Transform Demonstration</h3>
-
-                        <p>I created a visual demonstration of the Fourier transform in the complex plane. The code takes hand drawn paths and constructs a visual representation of the frequency deconstruction.</p>
-						<video class="image fit" autoplay muted>
-							<source src="images/FourierHello.mp4" type="video/mp4">
-						</video>
-						<p>The original idea comes from <a href="https://www.youtube.com/watch?v=r6sGWTCMz2k" target="_blank" rel="noopener noreferrer">this</a> video by 3Blue1Brown. I created a version of his photos using Python. I used Pygame to draw and get user input. The code works by sampling the mouse position at a constant rate and then, using a discrete Fourier transform (DFT), determining the frequency, amplitude and phase components of the signal. This works in two dimensions by considering the points to be in the complex plane, that is for a point (x,y) the value is x + yi. The final animation is then drawn with circles and rotating lines.</p>
-						<video class="image fit" autoplay muted>
-							<source src="images/FourierLoops.mp4" type="video/mp4">
-						</video>
-						<p>An interesting byproduct of sampling the mouse position at a constant speed is that the animation will play at the same speed that the picture was drawn. This means even discountinous jumps are possible. The end result is a straight line between the two points.</p>
-						<video class="image fit" autoplay muted>
-							<source src="images/FourierStar.mp4" type="video/mp4">
-						</video>
-						
-						<p><br><br></p>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Grid Size&emsp;&emsp;&ensp;Start &rarr; End</th>
+								<th>Grid Type</th>
+								<th>A* Java</th>
+								<th>JPS Java</th>
+								<th>A* Bits Java</th>
+								<th>A* in C</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>100 x 100&emsp;&emsp;(0,0) &rarr; (99,99)</td>
+								<td>empty</td>
+								<td>11ms</td>
+								<td>12ms</td>
+								<td>8ms</td>
+								<td>&lt;1ms</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>w/ open box from 2 to 66</td>
+								<td>51ms</td>
+								<td>97ms</td>
+								<td>34ms</td>
+								<td>&lt;1ms</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>w/ wall from (97,99) to (97,1)</td>
+								<td>121ms</td>
+								<td>106ms</td>
+								<td>87ms</td>
+								<td>&lt;1ms</td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td>1,000 x 1,000&emsp;(0,0) &rarr; (999,999)</td>
+								<td>empty</td>
+								<td>77ms</td>
+								<td>42ms</td>
+								<td>23ms</td>
+								<td>20ms</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>w/ open box from 2 to 666</td>
+								<td>5.1s</td>
+								<td>9.4s</td>
+								<td>1.5s</td>
+								<td>.24ms</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>w/ wall from (997,999) to (997,1)</td>
+								<td>15s</td>
+								<td>2.1s</td>
+								<td>2.8s</td>
+								<td>.7s</td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td>2,000 x 2,000&emsp;(0,0) &rarr; (1999,1999)</td>
+								<td>empty</td>
+								<td>138ms</td>
+								<td>62ms</td>
+								<td>40ms</td>
+								<td>23ms</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>w/ open box from 2 to 1666</td>
+								<td>72s</td>
+								<td>140s</td>
+								<td>8.8s</td>
+								<td>2.1s</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>w/ wall from (1997,1999) to (1997,1)</td>
+								<td>155s</td>
+								<td>17s</td>
+								<td>10s</td>
+								<td>2.86s</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a href="logs.html#AStar" class="button secondary fit">View Project Logs</a>
+				<p><br><br></p>
 
 
 
-						<h3 id="Climate" class="major">Climate Visualizations</h3>
+				<h3 id="Timelapse" class="major">Procedural Timelapse Photos</h3>
 
-                        <p>To learn a bit about Python's pandas library, I created some visualizations of historical weather data from OpenWeather. I used their <a href="https://openweathermap.org/history-bulk" target="_blank" rel="noopener noreferrer">History Bulk</a> data for <a href="https://www.google.com/maps/place/Diamond+Peak+Ski+Resort/@39.2535331,-119.9226857,15z" target="_blank" rel="noopener noreferrer">Diamond Peak</a>, a small ski mountain, to create the visualizations. The dataset was made of hourly reading going back to Jan 1, 1979 including temperature, snow fall and rain fall, which were the most interesting to me. Since my goal was to learn pandas, I tried lots of different ways to visualize the data. There ended up being a few interesting ones. Here is a GIF showing the yearly the mean, maximum and minimum temperature over time:
-						</p>
-						<div class="col-12"><span class="image fit"><img src="images/YearlyTempGIF.gif" alt="" /></span></div>
-						</p><p>Which I realized was challenging to understand, so I created a 3D visualization of the average temperature for every day they had recorded, which was a bit better (click to interact):
-						</p>
-						<div class="col-12"><span class="image fit"><a href="images/Pandas3d.html"><img src="images/PandasWeather3d.webp" alt="" /></a></span></div>
-						</p><p>Then I cut out the subjective analysis and created a graph showing the mean, maximum and minimum temperature during the winter months, with a linear regression:
-						</p>
-						<div class="col-12"><span class="image fit"><img src="images/WinterTemperatureRegression.webp" alt="" /></span></div>
-						</p><p>I also created these snow and rain fall graphs, again with linear regression.
-						</p>
-						<div class="col-12"><span class="image fit"><img src="images/FallRegression.webp" alt="" /></span></div>
-						<p><br><br></p>
-						
+				<p>Inspired by a <a
+						href="https://www.ted.com/talks/stephen_wilkes_the_passing_of_time_caught_in_a_single_photo?language=en"
+						target="_blank" rel="noopener noreferrer">Ted Talk by Stephen Wilkes</a>, I created a version of
+					his photos using Python.</p>
+				<div class="col-12"><span class="image fit"><img src="images/TimelapseFinal.webp" alt="" /></span></div>
+				<p>I used PIL, FFmpeg, multiprocessing and NumPy, the final code for the project is <a
+						href="https://github.com/JTKLENKE/Timelapse-Photos" target="_blank"
+						rel="noopener noreferrer">here</a>. Stephen Wilkes creates them manually, painstakingly picking
+					out the most interesting subjects and times of day and manually blending them to create his images.
+					I wanted to simplify the process, using frames from a timelapse video and procedurally blending over
+					time to create a similar effect.</p>
+				<a href="logs.html#Timelapse" class="button secondary fit">View Project Logs</a>
+				<p><br><br></p>
 
-                    </div>
-                </div>
 
-					
+				<h3 id="Fourier" class="major">Fourier Transform Demonstration</h3>
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Additional Info</h2>
-							<ul class="contact">
-								<li>Email&ensp;<a href="mailto:jtk96@cornell.edu" target="mailto:jtk96@cornell.edu" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-								<li>Resume&ensp;<a href="docs/JTKlenkeResume.pdf" target="_blank" rel="noopener noreferrer" class="icon solid fa-file"><span class="label">Resume</span></a></li>
-								<li>GitHub&ensp;<a href="https://github.com/jtklenke" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<li>LinkedIn&ensp;<a href="https://www.linkedin.com/in/jtklenke/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>© 2023 Julius Klenke. All Rights Reserved. | Template Courtesy of HTML5 UP</li>
-							</ul>
-						</div>
-					</section>
+				<p>I created a visual demonstration of the Fourier transform in the complex plane. The code takes hand
+					drawn paths and constructs a visual representation of the frequency deconstruction.</p>
+				<video class="image fit" autoplay muted>
+					<source src="images/FourierHello.mp4" type="video/mp4">
+				</video>
+				<p>The original idea comes from <a href="https://www.youtube.com/watch?v=r6sGWTCMz2k" target="_blank"
+						rel="noopener noreferrer">this</a> video by 3Blue1Brown. I created a version of his photos using
+					Python. I used Pygame to draw and get user input. The code works by sampling the mouse position at a
+					constant rate and then, using a discrete Fourier transform (DFT), determining the frequency,
+					amplitude and phase components of the signal. This works in two dimensions by considering the points
+					to be in the complex plane, that is for a point (x,y) the value is x + yi. The final animation is
+					then drawn with circles and rotating lines.</p>
+				<video class="image fit" autoplay muted>
+					<source src="images/FourierLoops.mp4" type="video/mp4">
+				</video>
+				<p>An interesting byproduct of sampling the mouse position at a constant speed is that the animation
+					will play at the same speed that the picture was drawn. This means even discountinuous jumps are
+					possible. The end result is a straight line between the two points.</p>
+				<video class="image fit" autoplay muted>
+					<source src="images/FourierStar.mp4" type="video/mp4">
+				</video>
+
+				<p><br><br></p>
+
+
+
+				<h3 id="Climate" class="major">Climate Visualizations</h3>
+
+				<p>To learn a bit about Python's pandas library, I created some visualizations of historical weather
+					data from OpenWeather. I used their <a href="https://openweathermap.org/history-bulk"
+						target="_blank" rel="noopener noreferrer">History Bulk</a> data for <a
+						href="https://www.google.com/maps/place/Diamond+Peak+Ski+Resort/@39.2535331,-119.9226857,15z"
+						target="_blank" rel="noopener noreferrer">Diamond Peak</a>, a small ski mountain, to create the
+					visualizations. The dataset was made of hourly reading going back to Jan 1, 1979 including
+					temperature, snow fall and rain fall, which were the most interesting to me. Since my goal was to
+					learn pandas, I tried lots of different ways to visualize the data. There ended up being a few
+					interesting ones. Here is a GIF showing the yearly the mean, maximum and minimum temperature over
+					time:
+				</p>
+				<div class="col-12"><span class="image fit"><img src="images/YearlyTempGIF.gif" alt="" /></span></div>
+				</p>
+				<p>Which I realized was challenging to understand, so I created a 3D visualization of the average
+					temperature for every day they had recorded, which was a bit better (click to interact):
+				</p>
+				<div class="col-12"><span class="image fit"><a href="images/Pandas3d.html"><img
+								src="images/PandasWeather3d.webp" alt="" /></a></span></div>
+				</p>
+				<p>Then I cut out the subjective analysis and created a graph showing the mean, maximum and minimum
+					temperature during the winter months, with a linear regression:
+				</p>
+				<div class="col-12"><span class="image fit"><img src="images/WinterTemperatureRegression.webp"
+							alt="" /></span></div>
+				</p>
+				<p>I also created these snow and rain fall graphs, again with linear regression.
+				</p>
+				<div class="col-12"><span class="image fit"><img src="images/FallRegression.webp" alt="" /></span></div>
+				<p><br><br></p>
+
 
 			</div>
+		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
-	</body>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Additional Info</h2>
+				<ul class="contact">
+					<li>Email&ensp;<a href="mailto:jtk96@cornell.edu" target="mailto:jtk96@cornell.edu"
+							class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					<li>Resume&ensp;<a href="docs/JTKlenkeResume.pdf" target="_blank" rel="noopener noreferrer"
+							class="icon solid fa-file"><span class="label">Resume</span></a></li>
+					<li>GitHub&ensp;<a href="https://github.com/jtklenke" target="_blank" rel="noopener noreferrer"
+							class="icon brands fa-github"><span class="label">Github</span></a></li>
+					<li>LinkedIn&ensp;<a href="https://www.linkedin.com/in/jtklenke/" target="_blank"
+							rel="noopener noreferrer" class="icon brands fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>© 2023 Julius Klenke. All Rights Reserved. | Template Courtesy of HTML5 UP</li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
