@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	JT Klenke's Portfolio Website, project page
+	Template by HTML5 UP under CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>JT Klenke</title>
+	<link rel="icon" type="image/x-icon" href="/images/Favicon.png">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+<!-- Header -->
+<header id="header" class="alt">
+	<h1><a href="#">Photos</a></h1>
+	<nav>
+		<a href="#menu">Menu</a>
+		<icons>
+			<a href="https://github.com/jt-klenke" target="_blank" rel="noopener noreferrer"
+				class="icon brands fa-github"><span class="label">GitHub</span></a>
+			<icons>
+				<a href="https://www.linkedin.com/in/jtklenke/" target="_blank" rel="noopener noreferrer"
+					class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+			</icons>
+		</icons>
+	</nav>
+</header>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="logs.html">Logs</a></li>
+					<li><a href="pottery.html">Pottery</a></li>
+					<li><a href="photos.html">Photos</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<h2>Photos</h2>
+				<p>These are my photos, they're mostly landscape but sometimes other things.</p>
+			</div>
+		</section>
+
+		<!-- Wrapper -->
+		<div class="wrapper">
+			<div class="inner" id="images">
+				<!-- <div class="col-6"><span class="image fit">
+						<img src="images/PandasWeather3d.webp" alt="" /></span>
+				</div>
+				<div class="col-6"><span class="image fit">
+						<img src="images/PandasWeather3d.webp" alt="" /></span>
+				</div> -->
+
+
+			</div>
+		</div>
+
+
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Additional Info</h2>
+				<ul class="contact">
+					<li>Email&ensp;<a href="mailto:jtk96@cornell.edu" target="mailto:jtk96@cornell.edu"
+							class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					<li>Resume&ensp;<a href="docs/JTKlenkeResume.pdf" target="_blank" rel="noopener noreferrer"
+							class="icon solid fa-file"><span class="label">Resume</span></a></li>
+					<li>GitHub&ensp;<a href="https://github.com/jt-klenke" target="_blank" rel="noopener noreferrer"
+							class="icon brands fa-github"><span class="label">Github</span></a></li>
+					<li>LinkedIn&ensp;<a href="https://www.linkedin.com/in/jtklenke/" target="_blank"
+							rel="noopener noreferrer" class="icon brands fa-linkedin"><span
+								class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>© 2024 Julius Klenke. All Rights Reserved. | Template Courtesy of HTML5 UP</li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		const image_list = Array.from({ length: 66 }, (_, i) => i + 1).filter(i => i !== 9 && i !== 49);
+
+		function generateHTML(image_list) {
+			const container = document.getElementById('images');
+
+			image_list.forEach(number => {
+				const img_path = `images/photos/${number}.webp`;
+				const colDiv = document.createElement('div');
+				colDiv.className = 'col-12';
+
+				const span = document.createElement('span');
+				span.className = 'image fit';
+
+				const a = document.createElement('a');
+				a.href = img_path;
+
+				const img = document.createElement('img');
+				img.src = img_path;
+				img.alt = '';
+
+				a.appendChild(img);
+				span.appendChild(a);
+				colDiv.appendChild(span);
+				container.appendChild(colDiv);
+			});
+		}
+		generateHTML(image_list);
+
+
+	</script>
+
+</body>
+
+</html>
