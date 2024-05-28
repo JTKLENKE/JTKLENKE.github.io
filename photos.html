@@ -14,6 +14,50 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		.grid-item {
+			break-inside: avoid;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			border-radius: 5px;
+			display: block;
+		}
+
+		@media screen and (max-width: 1680px) {
+			.grid-wrapper {
+				column-count: 3 !important;
+			}
+		}
+
+		@media screen and (max-width: 980px) {
+			.grid-wrapper {
+				column-count: 2 !important;
+			}
+		}
+
+		@media screen and (max-width: 700px) {
+			.grid-wrapper {
+				column-count: 1 !important;
+			}
+		}
+
+		.grid-wrapper {
+			column-count: 4;
+			column-gap: 10px;
+			margin: 10px;
+		}
+
+		.inner {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
+	</style>
 </head>
 <!-- Header -->
 <header id="header" class="alt">
@@ -61,13 +105,15 @@
 
 		<!-- Wrapper -->
 		<div class="wrapper">
-			<div class="inner" id="images">
-				<!-- <div class="col-6"><span class="image fit">
-						<img src="images/PandasWeather3d.webp" alt="" /></span>
+			<div style="padding-top: 1em;">
+				<div id="images" class="grid-wrapper">
+					<!-- <div class="col-6"><span class="image fit">
+							<img src="images/PandasWeather3d.webp" alt="" /></span>
+					</div>
+					<div class="col-6"><span class="image fit">
+							<img src="images/PandasWeather3d.webp" alt="" /></span>
+					</div> -->
 				</div>
-				<div class="col-6"><span class="image fit">
-						<img src="images/PandasWeather3d.webp" alt="" /></span>
-				</div> -->
 
 
 			</div>
@@ -105,19 +151,37 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
 	<script>
-		const image_list = Array.from({ length: 66 }, (_, i) => i + 1).filter(i => i !== 9 && i !== 49);
+		function shuffleArray(array) {
+			for (let i = array.length - 1; i >= 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+			return array;
+		}
+		const img_path = "images/photos/"
+		const landscape_list = Array.from({ length: 40 }, (_, i) => `${img_path}landscape/${i + 1}.webp`)
+		const portrait_list = Array.from({ length: 21 }, (_, i) => `${img_path}portrait/${i + 1}.webp`)
+		const wide_list = Array.from({ length: 2 }, (_, i) => `${img_path}wide/${i + 1}.webp`)
+
+		const image_list = shuffleArray(landscape_list.concat(portrait_list, wide_list));
 
 		function generateHTML(image_list) {
 			const container = document.getElementById('images');
 
-			image_list.forEach(number => {
-				const img_path = `images/photos/${number}.webp`;
+			image_list.forEach(img_path => {
+				if (img_path.includes("landscape")) {
+					var size = "landscape"
+				}
+				if (img_path.includes("portrait")) {
+					var size = "portrait"
+				}
+				if (img_path.includes("wide")) {
+					var size = "wide"
+				}
 				const colDiv = document.createElement('div');
-				colDiv.className = 'col-12';
-
-				const span = document.createElement('span');
-				span.className = 'image fit';
+				colDiv.className = `grid-item ${size}`;
 
 				const a = document.createElement('a');
 				a.href = img_path;
@@ -127,8 +191,7 @@
 				img.alt = '';
 
 				a.appendChild(img);
-				span.appendChild(a);
-				colDiv.appendChild(span);
+				colDiv.appendChild(a);
 				container.appendChild(colDiv);
 			});
 		}
